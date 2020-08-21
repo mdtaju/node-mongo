@@ -2,14 +2,12 @@ const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const MongoClient = require('mongodb').MongoClient;
-
+require('dotenv').config();
 const app = express();
 
 app.use(cors());
 app.use(bodyParser.json());
-const name = "newDbUser";
-const pass = "p601H4CciHL6KkEf";
-const uri = "mongodb+srv://newDbUser:p601H4CciHL6KkEf@cluster0.xxpdh.mongodb.net/newDbUser?retryWrites=true&w=majority";
+const uri = process.env.DB_URI;
 let client = new MongoClient(uri, { useNewUrlParser: true });
 
 app.get('/getAppointment', (req, res) =>{
