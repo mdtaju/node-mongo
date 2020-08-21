@@ -44,5 +44,5 @@ app.post('/appointment', (req, res) => {
         client.close();
     });
 });
-
-app.listen(4200, () => console.log('Listenting to port 4200'));
+let port = process.env.PORT || 8080;
+app.listen(port, () => console.log('Listenting to port 4200'));
